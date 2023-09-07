@@ -1,15 +1,13 @@
 import Url from "../Env/config.js";
 
-const getData = async (url) =>{
+const getNewsData = async (url) =>{
     try {
-        const response = await fetch(url);
-        console.log(response)
-        const data  = await response.json();
-        console.log(data)
+        const response = await fetch(url);        
+        const data  = await response.json();        
         return data;
     } catch (error) {
         console.log("Error while fetching data from API", error)
     }
 }
 
-getData(Url)
+export default getNewsData;
