@@ -7,9 +7,11 @@ const getNews = async (Url)=>{
         return newsData;
 }
 
-const setNews = (newsDataObj)=>{
+const createNews = (newsDataObj)=>{
     const newsArr = newsDataObj.articles;
     console.log(newsArr)
+    const modNewsArr = newsArr.map((eachArticle,index)=> new News(index , eachArticle.title , eachArticle.content , eachArticle.urlToImage, eachArticle.publishedAt, eachArticle.url));
+    return modNewsArr;
 }
 
-export  {getNews , setNews}
+export  {getNews , createNews}
