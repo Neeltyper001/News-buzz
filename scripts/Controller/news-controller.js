@@ -16,3 +16,8 @@ setInterval(()=>{
     const news = modifiedNews[Math.floor(Math.random() * modifiedNews.length)];
     changeNews(news);
 }, 5000);
+
+const myWorks = document.querySelector("#my-works");
+myWorks.addEventListener("click", ()=>{
+    window.open("https://my-small-works.netlify.app/", "_blank");
+})
