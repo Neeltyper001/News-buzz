@@ -13,7 +13,7 @@ const createCard = (article) => {
     const img = document.createElement('img');
     img.classList.add('h-56', 'w-full', 'object-cover');
     img.setAttribute('alt', article.title);
-    img.setAttribute('src', article.prevImage);
+    img.setAttribute('src', (article.prevImage && true ?  article.prevImage : '../../assets/default-images/default-card-image.avif'));
     
     const div = document.createElement('div');
     div.classList.add('bg-white', 'p-4', 'sm:p-6');
