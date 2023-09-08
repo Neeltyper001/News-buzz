@@ -1,6 +1,7 @@
 import { getNews, createNews } from "../Services/news-operations.js";
 import Url from "../Env/config.js";
 import createCard from "./news-card-ui.js";
+import changeNews from "./news-slider-ui.js";
 
 const newsDataObj =  await getNews(Url);
 const modifiedNews = createNews(newsDataObj);
@@ -10,3 +11,8 @@ const newsContainer = document.querySelector("#news-container");
 modifiedNews.forEach((eachNews)=>{
     newsContainer.appendChild(createCard(eachNews));
 })
+
+setInterval(()=>{
+    const news = modifiedNews[Math.floor(Math.random() * modifiedNews.length)];
+    changeNews(news);
+}, 5000);

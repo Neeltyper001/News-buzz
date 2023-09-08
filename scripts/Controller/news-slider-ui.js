@@ -6,3 +6,5 @@ const changeNews = (news) => {
     sliderText.textContent = news.title;
     sliderAnchor.href = news.newsUrl;
 }
+
+export default changeNews;
