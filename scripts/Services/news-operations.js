@@ -10,7 +10,7 @@ const getNews = async (Url)=>{
 const createNews = (newsDataObj)=>{
     const newsArr = newsDataObj.articles;
     console.log(newsArr)
-    const modNewsArr = newsArr.map((eachArticle,index)=> new News(index , eachArticle.title , eachArticle.content , eachArticle.urlToImage, eachArticle.publishedAt, eachArticle.url));
+    const modNewsArr = newsArr.map((eachArticle,index)=> new News(index , eachArticle.title , eachArticle.description , eachArticle.image, eachArticle.publishedAt, eachArticle.url));
     return modNewsArr;
 }
 
