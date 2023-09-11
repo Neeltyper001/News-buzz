@@ -10,4 +10,5 @@ const getNewsData = async (url) =>{
     }
 }
 
-export default getNewsData;
+
+export default getNewsData ;
