@@ -27,8 +27,8 @@ const searchBtn = document.querySelector("#search-btn");
 
 const searchTheNews = async ()=>{
     if(true && searchInput.value!=''){
-        // const searchUrl = `https://gnews.io/api/v4/search?q=${searchInput.value}&apikey=49f043047c6a0a00b6150d6c005723fa`;
-        const searchUrl = `https://newsapi.org/v2/everything?q=${searchInput.value}&apiKey=b9696d7845164da6a06de3b1f4af46a8`;
+        
+        const searchUrl = `https://newsapi.org/v2/everything?q=${searchInput.value}&apiKey=${process.env.API_KEY}`;
         const searchedNewsDataObj = await getNews(searchUrl);
         if(searchedNewsDataObj.articles.length === 0){
             alert("Oops result not found")

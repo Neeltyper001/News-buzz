@@ -1,5 +1,3 @@
-import Url from "../Env/config.js";
-
 const getNewsData = async (url) =>{
     try {
         const response = await fetch(url);        
