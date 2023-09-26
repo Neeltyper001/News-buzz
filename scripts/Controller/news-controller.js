@@ -4,7 +4,7 @@ import createCard from "./news-card-ui.js";
 import changeNews from "./news-slider-ui.js";
 
 const newsDataObj =  await getNews(Url);
-const modifiedNews = createNews(newsDataObj);
+let modifiedNews = createNews(newsDataObj);
 console.log(modifiedNews);
 const newsContainer = document.querySelector("#news-container");
 
@@ -13,7 +13,7 @@ modifiedNews.forEach((eachNews)=>{
 })
 
 setInterval(()=>{
-    const news = modifiedNews[Math.floor(Math.random() * modifiedNews.length)];
+    const news = modifiedNews[Math.floor(Math.random() * modifiedNews.length)];    
     changeNews(news);
 }, 5000);
 
@@ -21,3 +21,26 @@ const myWorks = document.querySelector("#my-works");
 myWorks.addEventListener("click", ()=>{
     window.open("https://my-small-works.netlify.app/", "_blank");
 })
+
+const searchInput = document.querySelector("#search");
+const searchBtn = document.querySelector("#search-btn");
+
+const searchTheNews = async ()=>{
+    if(true && searchInput.value!=''){
+        
+        const searchUrl = `https://newsapi.org/v2/everything?q=${searchInput.value}&apiKey=${process.env.API_KEY}`;
+        const searchedNewsDataObj = await getNews(searchUrl);
+        if(searchedNewsDataObj.articles.length === 0){
+            alert("Oops result not found")
+        }
+        else{
+            modifiedNews = createNews(searchedNewsDataObj)
+            newsContainer.innerHTML = "";
+            modifiedNews.forEach((eachNews)=>{
+                newsContainer.appendChild(createCard(eachNews));
+            })        
+        }
+    }
+    
+}
+searchBtn.addEventListener("click", searchTheNews)
