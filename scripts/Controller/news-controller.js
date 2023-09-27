@@ -5,7 +5,7 @@ import changeNews from "./news-slider-ui.js";
 
 const newsDataObj =  await getNews(Url);
 let modifiedNews = createNews(newsDataObj);
-console.log(modifiedNews);
+// console.log(modifiedNews);
 const newsContainer = document.querySelector("#news-container");
 
 modifiedNews.forEach((eachNews)=>{
@@ -28,7 +28,7 @@ const searchBtn = document.querySelector("#search-btn");
 const searchTheNews = async ()=>{
     if(true && searchInput.value!=''){
         
-        const searchUrl = `https://newsapi.org/v2/everything?q=${searchInput.value}&apiKey=${process.env.API_KEY}`;
+        const searchUrl = `https://news-buzz-back-end.onrender.com/api/getSearchedData/${searchInput.value}`;
         const searchedNewsDataObj = await getNews(searchUrl);
         if(searchedNewsDataObj.articles.length === 0){
             alert("Oops result not found")

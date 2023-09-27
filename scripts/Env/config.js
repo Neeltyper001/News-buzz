@@ -1,2 +1,3 @@
-const Url = `https://newsapi.org/v2/top-headlines?country=in&apiKey=${process.env.API_KEY}`
+// const Url = `https://news-buzz-back-end.onrender.com/api/getData/`
+const Url = `http://localhost:3000/api/getData/`
 export default Url;
