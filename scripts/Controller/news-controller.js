@@ -26,7 +26,6 @@ const searchInput = document.querySelector("#search");
 const searchBtn = document.querySelector("#search-btn");
 
 const searchTheNews = async ()=>{
-    console.log("I was clicked");
     if(true && searchInput.value!=''){
         
         const searchUrl = `https://news-buzz-back-end.onrender.com/api/getSearchedData/${searchInput.value}`;
