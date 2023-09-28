@@ -26,9 +26,11 @@ const searchInput = document.querySelector("#search");
 const searchBtn = document.querySelector("#search-btn");
 
 const searchTheNews = async ()=>{
+    console.log("I was clicked");
     if(true && searchInput.value!=''){
         
         const searchUrl = `https://news-buzz-back-end.onrender.com/api/getSearchedData/${searchInput.value}`;
+        // const searchUrl = `http://localhost:3000/api/getSearchedData/${searchInput.value}`;
         const searchedNewsDataObj = await getNews(searchUrl);
         if(searchedNewsDataObj.articles.length === 0){
             alert("Oops result not found")
@@ -44,3 +46,9 @@ const searchTheNews = async ()=>{
     
 }
 searchBtn.addEventListener("click", searchTheNews)
+searchInput.addEventListener("keyup", (event)=>{
+    if (event.keyCode === 13) {      
+      event.preventDefault();
+      searchBtn.click();
+    }
+  });
